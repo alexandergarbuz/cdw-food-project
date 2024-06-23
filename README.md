@@ -1,1 +1,1 @@
-# cdw-food-project
+# Test programming assignment for CDW (2015)
