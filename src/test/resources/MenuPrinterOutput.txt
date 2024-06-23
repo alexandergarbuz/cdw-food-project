@@ -1,0 +1,8 @@
+Menu:
+1.The Cubano - $5.25 
+2.Irish Road Reuben - $8.5 
+3.Irish Road Reuben with Extra Meat - $11.85 
+4.Carolina BBQ Pork - $7.25 
+5.Pub Burger - $8.1 
+6.Bakon Burger - $9.6 
+7.The Blt - $11.1 

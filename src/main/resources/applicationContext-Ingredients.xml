@@ -1,0 +1,194 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+		  "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<bean id="initialInventoryCount" class="java.lang.Integer" >
+		<constructor-arg index="0" type="int" value="${inventory.initial.count}"/>
+	</bean>
+	<!-- Ingredients -->
+	<bean id="FrenchBread" class="com.food.model.InventoryEntry">
+		<property name="name" value="French Bread" />
+		<property name="cost" value="1.75" />
+	</bean>
+	<bean id="MarbleRye" class="com.food.model.InventoryEntry">
+		<property name="name" value="Marble Rye" />
+		<property name="cost" value="1.50" />
+	</bean>
+	<bean id="BakeryRoll" class="com.food.model.InventoryEntry">
+		<property name="name" value="Bakery Roll" />
+		<property name="cost" value="1.25" />
+	</bean>
+	<bean id="BeefPatty" class="com.food.model.InventoryEntry">
+		<property name="name" value="Beef Patty" />
+		<property name="cost" value="3.00" />
+	</bean>
+	<bean id="PulledPork" class="com.food.model.InventoryEntry">
+		<property name="name" value="Pulled Pork" />
+		<property name="cost" value="2.00" />
+	</bean>
+	<bean id="CornedBeef" class="com.food.model.InventoryEntry">
+		<property name="name" value="Corned Beef" />
+		<property name="cost" value="3.35" />
+	</bean>
+	<bean id="Ham" class="com.food.model.InventoryEntry">
+		<property name="name" value="Ham" />
+		<property name="cost" value="1.00" />
+	</bean>
+	<bean id="Bacon" class="com.food.model.InventoryEntry">
+		<property name="name" value="Bacon" />
+		<property name="cost" value="1.50" />
+	</bean>
+	<bean id="Lettuce" class="com.food.model.InventoryEntry">
+		<property name="name" value="Lettuce" />
+		<property name="cost" value="0.75" />
+	</bean>
+	<bean id="Tomato" class="com.food.model.InventoryEntry">
+		<property name="name" value="Tomato" />
+		<property name="cost" value="0.50" />
+	</bean>
+	<bean id="Pickles" class="com.food.model.InventoryEntry">
+		<property name="name" value="Pickles" />
+		<property name="cost" value="0.50" />
+	</bean>
+	<bean id="Sauerkraut" class="com.food.model.InventoryEntry">
+		<property name="name" value="Sauerkraut" />
+		<property name="cost" value="0.75" />
+	</bean>
+	<bean id="SwissCheese" class="com.food.model.InventoryEntry">
+		<property name="name" value="Swiss Cheese" />
+		<property name="cost" value="2.90" />
+	</bean>
+	<bean id="CheddarCheese" class="com.food.model.InventoryEntry">
+		<property name="name" value="Cheddar Cheese" />
+		<property name="cost" value="2.10" />
+	</bean>
+	<!-- Sandwiches -->
+	<bean id="TheCubano" class="com.food.model.MenuItem">
+		<property name="id" value="1"/>
+		<property name="description" value="The Cubano"/>
+		<property name="ingredients">
+			<map>
+				<entry key-ref="FrenchBread" value="1"/>
+				<entry key-ref="PulledPork" value="1"/>
+				<entry key-ref="Ham" value="1"/>
+				<entry key-ref="Pickles" value="1"/>
+			</map>
+		</property>
+	</bean>
+	<bean id="IrishRoadReuben" class="com.food.model.MenuItem">
+		<property name="id" value="2"/>
+		<property name="description" value="Irish Road Reuben"/>
+		<property name="ingredients">
+			<map>
+				<entry key-ref="MarbleRye" value="1"/>
+				<entry key-ref="CornedBeef" value="1"/>
+				<entry key-ref="Sauerkraut" value="1"/>
+				<entry key-ref="SwissCheese" value="1"/>
+			</map>
+		</property>
+	</bean>
+	<bean id="IrishRoadReubenWithExtraMeat" class="com.food.model.MenuItem">
+		<property name="id" value="3"/>
+		<property name="description" value="Irish Road Reuben with Extra Meat"/>
+		<property name="ingredients">
+			<map>
+				<entry key-ref="MarbleRye" value="1"/>
+				<entry key-ref="CornedBeef" value="2"/>
+				<entry key-ref="Sauerkraut" value="1"/>
+				<entry key-ref="SwissCheese" value="1"/>
+			</map>
+		</property>
+	</bean>
+	<bean id="CarolinaBBQPork" class="com.food.model.MenuItem">
+		<property name="id" value="4"/>
+		<property name="description" value="Carolina BBQ Pork"/>
+		<property name="ingredients">
+			<map>
+				<entry key-ref="BakeryRoll" value="1"/>
+				<entry key-ref="PulledPork" value="3"/>
+			</map>
+		</property>
+	</bean>
+	<bean id="PubBurger" class="com.food.model.MenuItem">
+		<property name="id" value="5"/>
+		<property name="description" value="Pub Burger"/>
+		<property name="ingredients">
+			<map>
+				<entry key-ref="BakeryRoll" value="1"/>
+				<entry key-ref="BeefPatty" value="1"/>
+				<entry key-ref="Lettuce" value="1"/>
+				<entry key-ref="Tomato" value="1"/>
+				<entry key-ref="Pickles" value="1"/>
+				<entry key-ref="CheddarCheese" value="1"/>
+			</map>
+		</property>
+	</bean>
+	<bean id="BaconBurger" class="com.food.model.MenuItem">
+		<property name="id" value="6"/>
+		<property name="description" value="Bakon Burger"/>
+		<property name="ingredients">
+			<map>
+				<entry key-ref="BakeryRoll" value="1"/>
+				<entry key-ref="BeefPatty" value="1"/>
+				<entry key-ref="Bacon" value="1"/>
+				<entry key-ref="Lettuce" value="1"/>
+				<entry key-ref="Tomato" value="1"/>
+				<entry key-ref="Pickles" value="1"/>
+				<entry key-ref="CheddarCheese" value="1"/>
+			</map>
+		</property>
+	</bean>	
+	<bean id="TheBlt" class="com.food.model.MenuItem">
+		<property name="id" value="7"/>
+		<property name="description" value="The Blt"/>
+		<property name="ingredients">
+			<map>
+				<entry key-ref="MarbleRye" value="1"/>
+				<entry key-ref="Bacon" value="3"/>
+				<entry key-ref="Lettuce" value="2"/>
+				<entry key-ref="Tomato" value="2"/>
+				<entry key-ref="Pickles" value="1"/>
+				<entry key-ref="CheddarCheese" value="1"/>
+			</map>
+		</property>
+	</bean>
+	<!-- Services -->
+	<bean id="inventory" class="com.food.service.Inventory">
+		<property name="inventory">
+			<map>
+				<entry key-ref="FrenchBread" value-ref="initialInventoryCount"/>
+				<entry key-ref="MarbleRye" value-ref="initialInventoryCount"/>
+				<entry key-ref="BakeryRoll" value-ref="initialInventoryCount"/>
+				<entry key-ref="BeefPatty" value-ref="initialInventoryCount"/>
+				<entry key-ref="PulledPork" value-ref="initialInventoryCount"/>
+				<entry key-ref="CornedBeef" value-ref="initialInventoryCount"/>
+				<entry key-ref="Ham" value-ref="initialInventoryCount"/>
+				<entry key-ref="Bacon" value-ref="initialInventoryCount"/>
+				<entry key-ref="Lettuce" value-ref="initialInventoryCount"/>
+				<entry key-ref="Tomato" value-ref="initialInventoryCount"/>
+				<entry key-ref="Pickles" value-ref="initialInventoryCount"/>
+				<entry key-ref="Sauerkraut" value-ref="initialInventoryCount"/>
+				<entry key-ref="SwissCheese" value-ref="initialInventoryCount"/>
+				<entry key-ref="CheddarCheese" value-ref="initialInventoryCount"/>
+			</map>
+		</property>
+	</bean>
+	<bean id="menu" class="com.food.service.Menu">
+		<property name="inventory" ref="inventory"/>
+		<property name="menuItems">
+			<list>
+				<ref bean="TheCubano"/>
+				<ref bean="IrishRoadReuben"/>
+				<ref bean="IrishRoadReubenWithExtraMeat"/>
+				<ref bean="CarolinaBBQPork"/>
+				<ref bean="PubBurger"/>
+				<ref bean="BaconBurger"/>
+				<ref bean="TheBlt"/>
+			</list>
+		</property>
+	</bean>
+	<bean id="foodDispenser" class="com.food.service.FoodDispenser">
+		<property name="inventory" ref="inventory"/>
+		<property name="menu" ref="menu"/>
+		
+	</bean>
+</beans>

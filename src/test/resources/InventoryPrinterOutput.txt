@@ -1,0 +1,15 @@
+Inventory:
+French Bread, 10
+Marble Rye, 10
+Bakery Roll, 10
+Beef Patty, 10
+Pulled Pork, 10
+Corned Beef, 10
+Ham, 10
+Bacon, 10
+Lettuce, 10
+Tomato, 10
+Pickles, 10
+Sauerkraut, 10
+Swiss Cheese, 10
+Cheddar Cheese, 10

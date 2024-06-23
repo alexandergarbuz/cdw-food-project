@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+
+  <meta content="text/html;charset=ISO-8859-1" http-equiv="Content-Type"></head><body bgcolor="#ffffff" text="#000000">
+
+<h1>Sandwich-anator Programming Assignment</h1>
+<hr> 
+
+<h3>PROBLEM DESCRIPTION:</h3>
+Create a simulation of an automatic sandwich dispensing
+machine, called the <i>Sandwich-anator</i>.&nbsp; The machine maintains an
+inventory of ingredients, and is able to dispense a fixed set of
+possible sandwiches by combining these ingredients in different amounts.
+The cost of a sandwich is determined by its component ingredients.<br>
+<br>
+When complete, zip the project (minus .class files) and email it to matt.kasubaski at cdw.com with your name and Sandwich-Anator in the subject.
+<br>
+<br>
+Upon startup, the <i>Sandwich-anator</i> should display a list of its
+current inventory, followed by a menu to allow the user to select a
+sandwich.&nbsp; As sandwiches are dispensed, the inventory should be updated.&nbsp; Only
+sandwiches for which there is sufficient inventory can be served.<br>
+<br>
+The specified input and output formats for the <i>Sandwich-anator</i>
+must be followed exactly.&nbsp; At the end of these instructions, you will
+find examples of some input/output scenarios.<br>
+<br>
+Your Sandwich-anator machine should be capable of dispensing the
+following sandwiches:<br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td bgcolor="#cccccc" valign="top"><b>Sandwich Name<br>
+      </b></td>
+      <td bgcolor="#cccccc" valign="top"><b>Ingredients<br>
+      </b></td>
+    </tr>
+    <tr>
+      <td valign="top">The Cubano</td>
+      <td valign="top">1 unit of French bread, 1 unit of pulled pork, 1 unit of ham, 1 unit of pickles, 1 unit of Swiss cheese</td>
+    </tr>
+    <tr>
+      <td valign="top">Irish Road Reuben</td>
+      <td valign="top">1 unit of marble rye, 1 unit of corned beef, 1 unit of sauerkraut, 1 unit of Swiss cheese</td>
+    </tr>
+    <tr>
+      <td valign="top">Irish Road Reuben - extra meat</td>
+      <td valign="top">1 unit of marble rye, 2 units of corned beef, 1 unit of sauerkraut, 1 unit of Swiss cheese</td>
+    </tr>
+    <tr>
+      <td valign="top">Carolina BBQ Pork</td>
+      <td valign="top">1 unit of bakery roll, 3 units of pulled pork</td>
+    </tr>
+    <tr>
+      <td valign="top">Pub Burger</td>
+      <td valign="top">1 unit of bakery roll, 1 unit of beef patty, 1 unit of lettuce, 1 unit of tomato, 1 unit of pickles, 1 unit of cheddar cheese</td>
+    </tr>
+    <tr>
+      <td valign="top">Bacon Burger</td>
+      <td valign="top">1 unit of bakery roll, 1 unit of beef patty, 1 unit of bacon, 1 unit of lettuce, 1 unit of tomato, 1 unit of pickles, 1 unit of cheddar cheese</td>
+    </tr>
+    <tr>
+      <td valign="top">The BLT</td>
+      <td valign="top">1 unit of marble rye, 3 units of bacon, 2 unit of lettuce, 2 unit of tomato</td>
+    </tr>
+  </tbody>
+
+</table>
+<br>
+Per-unit ingredient costs are as follows:<br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td bgcolor="#cccccc" valign="top"><b>Ingredient<br>
+      </b></td>
+      <td bgcolor="#cccccc" valign="top"><b>Unit Cost<br>
+      </b></td>
+    </tr>
+    <!-- breads -->
+    <tr>
+      <td valign="top">French bread</td>
+      <td align="right" valign="top">$1.75<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">marble rye<br>
+      </td>
+      <td align="right" valign="top">$1.50</td>
+    </tr>
+    <tr>
+      <td valign="top">bakery roll<br>
+      </td>
+      <td align="right" valign="top">$1.25<br>
+      </td>
+    </tr>
+    <!-- meat -->
+    <tr>
+      <td valign="top">beef patty<br>
+      </td>
+      <td align="right" valign="top">$3.00<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">pulled pork<br>
+      </td>
+      <td align="right" valign="top">$2.00<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">corned beef<br>
+      </td>
+      <td align="right" valign="top">$3.35<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">ham<br>
+      </td>
+      <td align="right" valign="top">$1.00<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">bacon<br>
+      </td>
+      <td align="right" valign="top">$1.50<br>
+      </td>
+    </tr>
+    <!-- toppings -->
+    <tr>
+      <td valign="top">lettuce<br>
+      </td>
+      <td align="right" valign="top">$0.75<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">tomato<br>
+      </td>
+      <td align="right" valign="top">$0.50<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">pickles<br>
+      </td>
+      <td align="right" valign="top">$0.50<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">sauerkraut<br>
+      </td>
+      <td align="right" valign="top">$0.75<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">Swiss cheese<br>
+      </td>
+      <td align="right" valign="top">$2.90<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">cheddar cheese<br>
+      </td>
+      <td align="right" valign="top">$2.10<br>
+      </td>
+    </tr>
+  </tbody>
+
+</table>
+<br>
+Initially the Sandwich-anator should contain 10 units of all ingredients,
+and restocking the machine should restore each ingredient to a maximum
+of 10 units.<br>
+<h3>INPUT FORMAT:</h3>
+Your solution should read from the standard input stream, one command
+per line.&nbsp; No prompts or other extraneous user messages should be
+displayed.&nbsp; Blank input lines should be ignored.<br>
+<br>
+Each valid command consists of a single character, as follows:<br>
+<ul>
+  <li>'R' or 'r' - restock the inventory and redisplay the menu</li>
+  <li>'Q' or 'q' - quit the application</li>
+  <li>[1-7] - order the sandwich with the corresponding number in the menu</li>
+
+</ul>
+If the user enters an invalid command, then the program should display
+a single-line message with the following format:<br>
+<blockquote>
+  <pre>Invalid selection: &lt;characters that were entered&gt;</pre>
+</blockquote>
+If the user selects a valid sandwich number, and the machine has the
+required ingredients to make the sandwich, then the program should display
+a single-line message with the following format:<br>
+<blockquote>
+  <pre>Dispensing: &lt;sandwich name&gt;</pre>
+</blockquote>
+On the other hand, if the sandwich order cannot be completed, then the
+program should display a single-line message with the following format:<br>
+<blockquote>
+  <pre>Out of stock: &lt;sandwich name&gt;</pre>
+
+</blockquote>
+The inventory and menu (see next section) should be displayed
+immediately following any applicable message.<br>
+<h3>OUTPUT FORMAT:</h3>
+All output should be written to the standard output stream.&nbsp; At program
+startup, and following the processing of every command, the machine
+inventory and the sandwich menu should be displayed.&nbsp; Both the inventory
+list and the sandwich menu should be displayed in alphabetic order (by
+ingredient name or sandwich name, respectively), in the following format:<br>
+<blockquote>
+  <pre>Inventory:
+&lt;ingredient name&gt;,&lt;quantity in inventory&gt;
+...
+&lt;ingredient name&gt;,&lt;quantity in inventory&gt;
+Menu:
+&lt;sandwich number&gt;,&lt;sandwich name&gt;,&lt;cost&gt;,&lt;in-stock&gt;
+...
+&lt;sandwich number&gt;,&lt;sandwich name&gt;,&lt;cost&gt;,&lt;in-stock&gt;</pre>
+</blockquote>
+Sandwiches should be numbered sequentially, starting at 1, in the order they are
+displayed in the menu.  The in-stock indicator should be either "true" or "false".<br>
+<br>
+Note: the sample output is indented in these instructions to make
+it easier to read.&nbsp; The output generated by your program should <i>not</i>
+have any whitespace at the beginning of a line.<br>
+
+<h3>TECHNICAL NOTES:</h3>
+Your solution should be a command-line program written in Java and be buildable by Maven.
+If you use any external libraries that are not in the Maven Central Repository  
+please bundle these libraries with your code so that we can run your solution.<br>
+<br>
+It is <em>not</em> required that the initial machine configuration (inventory
+counts, available sandwiches and prices, etc.) be dynamic.  In particular, it
+is acceptable to perform this initialization in code, rather than reading
+the configuration from an external file or database.  However, your program
+should be flexible enough to allow new sandwiches to be added to the menu
+without requiring extensive code changes.<br>
+<br>
+Make sure your program works correctly for all combinations of inputs.&nbsp;
+You may include automated tests if you like (using a framework such as
+JUnit), but this is not required.<br>
+<br>
+Extensive inline or method-level comments are not required, unless you
+want to include them to highlight particular aspects of your design or
+implementation.<br>
+
+<h3>EXAMPLE:</h3>
+Upon application startup, the initial inventory list and sandwich menu
+would look like this:<br>
+
+<blockquote>
+ <pre>
+Inventory:
+Bacon,10
+Bakery Roll,10
+Beef Patty,10
+Cheddar Cheese,10
+Corned Beef,10
+French Bread,10
+Ham,10
+Lettuce,10
+Marble Rye,10
+Pickles,10
+Pulled Pork,10
+Sauerkraut,10
+Swiss Cheese,10
+Tomato,10
+Menu:
+1,Bacon Burger,9.60,true
+2,Carolina BBQ Pork,7.25,true
+3,Irish Road Reuben,8.50,true
+4,Irish Road Reuben - extra meat,11.85,true
+5,Pub Burger,8.10,true
+6,The BLT,8.50,true
+7,The Cubano,8.15,true
+</pre>
+</blockquote>
+For input consisting of the following commands:<br>
+<blockquote>
+  <pre>2
+q</pre>
+</blockquote>
+the program would produce the following output (including the startup
+output):<br>
+<blockquote>
+  <pre>
+Inventory:
+Bacon,10
+Bakery Roll,10
+Beef Patty,10
+Cheddar Cheese,10
+Corned Beef,10
+French Bread,10
+Ham,10
+Lettuce,10
+Marble Rye,10
+Pickles,10
+Pulled Pork,10
+Sauerkraut,10
+Swiss Cheese,10
+Tomato,10
+Menu:
+1,Bacon Burger,9.60,true
+2,Carolina BBQ Pork,7.25,true
+3,Irish Road Reuben,8.50,true
+4,Irish Road Reuben - extra meat,11.85,true
+5,Pub Burger,8.10,true
+6,The BLT,8.50,true
+7,The Cubano,8.15,true
+<font color="red">2</font>
+Dispensing: Carolina BBQ Pork
+Inventory:
+Bacon,10
+Bakery Roll,9
+Beef Patty,10
+Cheddar Cheese,10
+Corned Beef,10
+French Bread,10
+Ham,10
+Lettuce,10
+Marble Rye,10
+Pickles,10
+Pulled Pork,7
+Sauerkraut,10
+Swiss Cheese,10
+Tomato,10
+Menu:
+1,Bacon Burger,9.60,true
+2,Carolina BBQ Pork,7.25,true
+3,Irish Road Reuben,8.50,true
+4,Irish Road Reuben - extra meat,11.85,true
+5,Pub Burger,8.10,true
+6,The BLT,8.50,true
+7,The Cubano,8.15,true
+<font color="red">q</font>
+  </pre>
+</blockquote>
+<br>
+</body></html>
